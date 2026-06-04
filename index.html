@@ -52,13 +52,13 @@
 						src="assets/bitcoin.png"
 						style="height: 50%;background: transparent"/>
 					</section>
-					<section data-background="assets/creditcard-overlay.png" data-auto-animate>
+					<section data-background="rgb(20, 22, 34)" data-auto-animate>
 						<div class="r-stack">
 							<img src="assets/crypto.png"
-								style="width:100%; background: white; margin: 30pt"/>
+								style="height:100%; background: rgb(20, 22, 34); margin: 30pt"/>
 							<img data-id="bitcoin"						
 								src="assets/bitcoin.png"
-								style="height: 15pt; background: transparent; position: absolute; margin-top: 64pt; margin-left: 73pt"/>
+								style="height: 15pt; background: transparent; position: absolute; margin-top: 59pt; margin-left: 71pt"/>
 						</div>
 					</section>
 					<section data-background="black" data-transition="fade">
@@ -138,6 +138,11 @@
 							</div>
 						</div>
 					</section>
+					<section data-background="white" data-transition="slide">
+						<h2 style="margin-bottom:-10pt; color:#0042b3; font-weight: bold;">
+						Ideal to be used as a digital currency
+						</h2>
+					</section>
 				</section>
 				<section>
 					<section data-background="assets/ecash.png" data-transition="fade">
@@ -145,8 +150,75 @@
 							How does Taler “electronic cash” work?
 						</h2>
 					</section>
-					<section data-background="white" data-transition="fade">
+					<section data-background="white" data-transition="slide">
 						<div id="diagram"></div>
+					</section>
+				</section>
+				<section>
+					<section data-background-iframe="assets/section.html" data-transition="slide">
+						<h3 style="margin:0; color:white; font-weight: bold;">
+							Cryptographic building blocks
+						</h3>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								Blind Signatures (e-cash)
+							</h3>
+							<div id="bs" style="flex:1; width:100%; margin-top: 60pt;"></div>
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								Blind Signatures (Taler)
+							</h3>
+							<div id="bs-taler" style="flex:1; width:100%; margin-top: 60pt;"></div>
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								Coins
+							</h3>
+							<div id="coin-struc" style="flex:1; width:100%; margin-top: 60pt;"></div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section data-background-iframe="assets/section.html" data-transition="slide">
+						<h3 style="margin:0; color:white; font-weight: bold;">
+							Payment and Change
+						</h3>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<div id="payment" style="flex:1; width:100%; margin-top: 10pt;"></div>
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style=" margin: 30pt; color:#0042b3; font-weight: bold;">
+								Change requirements
+							</h3>
+							<div class="fragment fade-down" style="margin: 30pt;">
+								<h4> <strong>Anonymity</strong> </h4>
+								<h6 style="background-color: #0042b341; padding: 10pt; border-radius: 30pt; font-weight: normal;"> Spent coins and change must appear <strong>unrelated</strong> </h6>
+							</div>
+							<div class="fragment fade-down" style="margin: 30pt;">
+								<h4> <strong>Anti-money laundering</strong> </h4>
+								<h6 style="background-color: #0042b341; padding: 10pt; border-radius: 30pt; font-weight: normal;">Change <strong>ownership</strong> cannot be transferred </h6>
+							</div>
+							<!-- <div id="cheat" style="flex:1; width:100%; margin-top: 10pt;"></div> -->
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style=" margin: 30pt; color:#0042b3; font-weight: bold;">
+								Money-laundering in Taler?
+							</h3>
+							<div id="cheat" style="flex:1; width:100%; margin-top: 10pt;"></div>
+						</div>
 					</section>
 				</section>
 			</div>
@@ -158,184 +230,12 @@
 		<script src="dist/plugin/highlight.js"></script>
 		<script>
 			Reveal.initialize({
-			hash: true,
-			preloadIframes: true,
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+				hash: true,
+				preloadIframes: true,
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			});
-
-			// Load SVG and init AFTER load
-			fetch('assets/diagram.svg')
-			.then(res => res.text())
-			.then(svg => {
-				document.getElementById('diagram').innerHTML = svg;
-				initAnimation();
-			});
-
-			const positionHistory = new Map();
-			let isAnimating = false;
-			let isAnon = false;
-
-			function initAnimation() {
-				Reveal.on('fragmentshown', e => handleStep(e, true));
-				Reveal.on('fragmenthidden', e => handleStep(e, false));
-
-				Reveal.on('slidechanged', () => {
-					positionHistory.clear();
-				});
-				}
-
-				async function handleStep(event, forward) {
-				if (isAnimating) return;
-				isAnimating = true;
-
-				try {
-					const step = event.fragment.dataset.step;
-
-					const coin = document.getElementById("coin");
-					const anonCoin = document.getElementById("anon-coin");
-
-					switch (step) {
-
-					case "wire-money1":
-						if (forward) {
-						await move(coin, "Reserve");
-						} else {
-						await restorePosition(coin);
-						}
-						break;
-
-					case "withdraw":
-						if (forward) {
-						showWallet();
-						await move(coin, "exchange");
-						await crossfade(coin, anonCoin, 1.5);
-						await move(anonCoin, "wallet-group");
-						} else {
-						await restorePosition(anonCoin);
-						await crossfade(anonCoin, coin, 1.5);
-						await restorePosition(coin);
-						hideWallet();
-						}
-						break;
-
-					case "pay":
-						if (forward) {
-						await move(anonCoin, "merchant");
-						} else {
-						await restorePosition(anonCoin);
-						}
-						break;
-
-					case "deposit":
-						if (forward) {
-						await move(anonCoin, "exchange");
-						} else {
-						await restorePosition(anonCoin);
-						}
-						break;
-
-					case "wire-money2":
-						if (forward) {
-						await crossfade(anonCoin, coin, 1.5);
-						await move(coin, "bankm");
-						} else {
-						await restorePosition(coin);
-						await crossfade(coin, anonCoin, 1.5);
-						}
-						break;
-					}
-
-				} finally {
-					isAnimating = false;
-				}
-			}
-
-			function getCenter(el) {
-				const b = el.getBBox();
-				return {
-					x: b.x + b.width / 2,
-					y: b.y + b.height / 2
-				};
-			}
-
-			function getTransform(el) {
-				return el._gsap?.transform || { x: 0, y: 0 };
-			}
-
-			function savePosition(el) {
-				if (!positionHistory.has(el)) {
-					positionHistory.set(el, []);
-				}
-
-				const stack = positionHistory.get(el);
-				const t = getTransform(el);
-
-				stack.push({ x: t.x, y: t.y });
-			}
-
-			function restorePosition(el) {
-				const stack = positionHistory.get(el);
-				if (!stack || stack.length === 0) return Promise.resolve();
-
-				const prev = stack.pop();
-
-				return new Promise(resolve => {
-					gsap.to(el, {
-					x: prev.x,
-					y: prev.y,
-					duration: 0.8,
-					ease: "power2.inOut",
-					onComplete: resolve
-					});
-				});
-			}
-
-
-			function move(el, targetId) {
-				return new Promise(resolve => {
-
-					savePosition(el);
-
-					const target = document.getElementById(targetId);
-
-					const c = getCenter(el);
-					const t = getCenter(target);
-
-					const dx = t.x - c.x;
-					const dy = t.y - c.y;
-
-					gsap.to(el, {
-					duration: 0.8,
-					x: dx,
-					y: dy,
-					ease: "power2.inOut",
-					onComplete: resolve
-					});
-
-				});
-			}
-			function crossfade(fromEl, toEl, duration = 1.5) {
-				return new Promise(resolve => {
-
-					gsap.timeline({
-					onComplete: () => {
-						isAnon = (toEl.id === "anon-coin");
-						resolve();
-					}
-					})
-					.to(fromEl, { opacity: 0, duration, ease: "power2.inOut" }, 0)
-					.to(toEl,   { opacity: 1, duration, ease: "power2.inOut" }, 0);
-
-				});
-			}
-
-			function showWallet() {
-				gsap.set("#wallet-overlay", { opacity: 1 });
-			}
-
-			function hideWallet() {
-				gsap.set("#wallet-overlay", { opacity: 0 });
-			}
 		</script>
+		<script src="logic/diagram.js"></script>
+		<script src="logic/svg.js"></script>
 	</body>
 </html>
