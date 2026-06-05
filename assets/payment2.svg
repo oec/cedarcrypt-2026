@@ -317,7 +317,7 @@
   </defs>
   <g id="Spend">
     <g id="purchase">
-      <g id="pay" class="fragment fade" data-fragment-index="1">
+      <g id="pay">
         <g>
           <g class="pay-cls-28">
             <ellipse class="pay-cls-17" cx="1055.58" cy="241.53" rx="69.21" ry="69.41"/>
@@ -398,7 +398,7 @@
           </g>
         </g>
       </g>
-      <g id="part-spent" style="opacity:0">
+      <g id="part-spent" class="fragment fade">
         <g>
           <g>
             <g class="pay-cls-27">
@@ -418,7 +418,7 @@
           <path class="pay-cls-22" d="M752.01,412.76c-.47-.29-1.08-.15-1.38.31l-8.16,12.94-8.28-12.87c-.3-.46-.92-.6-1.38-.3-.46.3-.6.92-.3,1.38l9.13,14.19c.18.29.5.46.85.46.34,0,.66-.18.84-.47l9-14.27c.1-.17.15-.35.15-.54,0-.33-.17-.65-.47-.84Z"/>
         </g>
       </g>
-      <g id="change" style="opacity:0">
+      <g id="change" class="fragment fade">
         <g>
           <g class="pay-cls-6">
             <ellipse class="pay-cls-15" cx="1034.49" cy="520.71" rx="43.46" ry="43.63"/>

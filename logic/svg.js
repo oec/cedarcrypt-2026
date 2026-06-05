@@ -22,8 +22,53 @@ fetch('assets/payment.svg')
         document.getElementById('payment').innerHTML = svg;
     });
 
-fetch('assets/cheat.svg')
+fetch('assets/payment2.svg')
     .then(r => r.text())
     .then(svg => {
-        document.getElementById('cheat').innerHTML = svg;
+        document.getElementById('payment2').innerHTML = svg;
+    });
+
+fetch('assets/money-laundry0.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('cheat0').innerHTML = svg;
+    });
+
+fetch('assets/money-laundry1.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('cheat1').innerHTML = svg;
+    });
+
+
+fetch('assets/money-laundry2.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('cheat2').innerHTML = svg;
+    });
+
+fetch('assets/refresh-prot.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('refresh-prot').innerHTML = svg;
+    });
+
+fetch('assets/refresh-derive.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('refresh-derive').innerHTML = svg;
+    });
+
+fetch('assets/reobtain-coin.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('reobtain-coin').innerHTML = svg;
+    });
+
+fetch('assets/pq-idea.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('pq-idea').innerHTML = svg;
+        Reveal.sync();
+        Reveal.layout();
     });

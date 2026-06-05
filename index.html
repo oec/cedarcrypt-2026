@@ -191,9 +191,16 @@
 							Payment and Change
 						</h3>
 					</section>
-					<section data-background="white">
-						<div class="v-stack">
-							<div id="payment" style="flex:1; width:100%; margin-top: 10pt;"></div>
+					<section data-background="white" data-auto-animate>
+						<div class="r-stack">
+							<div data-id="bg-an" class="fragment fade" data-fragment-index="1" style="background-color: #0042b341; margin-left: 400pt; margin-top:100pt; border-radius: 30pt; width: 350pt; height: 150pt;"> </div>
+							<div data-id="payment" class="fragment fade" data-fragment-index="0" id="payment" style="flex:1; width:100%; margin-top: 10pt;"></div>
+						</div>
+					</section>
+					<section data-background="white" data-auto-animate>
+						<div class="r-stack">
+							<div data-id="bg-an" style="background-color: #0042b341; margin-left: 400pt; margin-top:100pt; border-radius: 30pt; width: 350pt; height: 300pt;"> </div>
+							<div data-id="payment" id="payment2" style="flex:1; width:100%; margin-top: 10pt;"></div>
 						</div>
 					</section>
 					<section data-background="white">
@@ -209,15 +216,128 @@
 								<h4> <strong>Anti-money laundering</strong> </h4>
 								<h6 style="background-color: #0042b341; padding: 10pt; border-radius: 30pt; font-weight: normal;">Change <strong>ownership</strong> cannot be transferred </h6>
 							</div>
-							<!-- <div id="cheat" style="flex:1; width:100%; margin-top: 10pt;"></div> -->
+						</div>
+					</section>
+					<section data-background="white" data-auto-animate>
+						<div class="v-stack">
+							<h3 style="display: flex; gap: 15pt; align-items: center; justify-content: center;">
+								<div data-id="mlt" style="color:#0042b3; font-weight: bold;">
+									Money-laundering in Taler
+								</div>
+								<div data-id="quest" style="color:#0042b3; font-weight: bold;">
+									?
+								</div>
+							</h3>
+							<div class="r-stack">
+								<div data-id="bg-cheat" style="width: 430pt; height: 170pt; background-color: #0042b341; margin-left: 130pt; margin-top:5pt; border-radius: 30pt;"></div>
+								<div id="cheat0" style="z-index: 1; margin-left: 150pt; width: 500pt"></div>
+							</div>
+						</div>
+					</section>
+					<section data-background="white" data-auto-animate>
+						<div class="v-stack">
+							<h3 style="display: flex; gap: 15pt; align-items: center; justify-content: center;">
+								<div data-id="mlt" style="color:#0042b3; font-weight: bold;">
+									Money-laundering in Taler
+								</div>
+								<div data-id="quest" style="color:#0042b3; font-weight: bold;">
+									?
+								</div>
+							</h3>
+							<div class="r-stack">
+								<div data-id="bg-cheat" style="width: 430pt; height: 400pt; background-color: #0042b341; margin-top:0pt; margin-left: 130pt; border-radius: 30pt;"></div>
+								<div id="cheat1" style="z-index: 1; margin-left: 150pt; width: 500pt"></div>
+							</div>
+						</div>
+					</section>
+					<section data-background="white" data-auto-animate>
+						<div class="v-stack">				
+							<h3 style="display: flex; gap: 15pt; align-items: center; justify-content: center;">
+								<div style="color:#0042b3; font-weight: bold;">
+									Fixing
+								</div>
+								<div data-id="mlt" style="color:#0042b3; font-weight: bold;">
+									Money-laundering in Taler
+								</div>
+							</h3>
+							<div class="r-stack">
+								<div data-id="bg-cheat" style="width: 430pt; height: 430pt; background-color: #0042b341; margin-left: 130pt; margin-bottom:10pt; border-radius: 30pt;"></div>
+								<div id="cheat2" style="z-index: 1; margin-left: 150pt; width: 500pt"></div>
+							</div>
 						</div>
 					</section>
 					<section data-background="white">
 						<div class="v-stack">
 							<h3 style=" margin: 30pt; color:#0042b3; font-weight: bold;">
-								Money-laundering in Taler?
+								Change requirements (part 2)
 							</h3>
-							<div id="cheat" style="flex:1; width:100%; margin-top: 10pt;"></div>
+							<div class="fragment fade-down" style="margin: 30pt;">
+								<h4> <strong>Anonymity</strong> </h4>
+								<h6 style="background-color: #0042b341; padding: 10pt; border-radius: 30pt; font-weight: normal;"> 
+									No one (except coin's owners) can correlate spent coins and change
+								</h6>
+							</div>
+							<div class="fragment fade-down" style="margin: 30pt;">
+								<h4> <strong>Anti-money laundering</strong> </h4>
+								<h6 style="background-color: #0042b341; padding: 10pt; border-radius: 30pt; font-weight: normal;">
+									Owners can always re-obtain change from their coins
+								</h6>
+							</div>
+						</div>
+					</section>
+					<section data-background="white" data-transition="slide" data-auto-animate>
+						<h3 style="margin-bottom:10pt; color:#0042b3; font-weight: bold;">
+						How?
+						</h3>
+						<h3 data-id="refresh-prot-text" class="fragment fade-up" style="margin-bottom:-10pt; font-weight: bold;">
+						Refresh protocol
+						</h3>
+					</section>
+					<section data-background="white" data-auto-animate>
+						<div class="v-stack">
+							<h3 data-id="refresh-prot-text" style="margin:0; color:#0042b3; font-weight: bold;">
+								Refresh protocol
+							</h3>
+							<div id="refresh-prot" style="flex:1; width:100%; margin-top: 10pt;"></div>
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								Refresh Derive
+							</h3>
+							<div style="width:100%; display:flex; justify-content:center;">
+								<div id="refresh-derive" style="width:70%;"></div>
+							</div>
+						</div>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								Re-obtaining a refreshed coin
+							</h3>
+							<div style="width:100%; display:flex; justify-content:center;">
+								<div id="reobtain-coin" style="width:100%;"></div>
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section data-background-iframe="assets/section.html" data-transition="slide">
+						<h2 style="margin:0; color:white; font-weight: bold;">
+							Post-quantum refresh
+						</h2>
+					</section>
+					<section data-background="white">
+						<div class="v-stack">
+							<h3 style="margin:0; margin: 30pt; color:#0042b3; font-weight: bold;">
+								The idea
+							</h3>
+							<div style="width:100%; display:flex; justify-content:center;">
+								<div class="r-stack" style="width:100%;">
+									<div id="pq-idea" style="width:100%;"></div>
+								</div>
+							</div>
 						</div>
 					</section>
 				</section>
