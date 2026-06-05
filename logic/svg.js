@@ -72,3 +72,28 @@ fetch('assets/pq-idea.svg')
         Reveal.sync();
         Reveal.layout();
     });
+
+fetch('assets/rand.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('rand').innerHTML = svg;
+        Reveal.sync();
+        Reveal.layout();
+    });
+
+fetch('assets/tsig.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('tsig').innerHTML = svg;
+        Reveal.sync();
+        Reveal.layout();
+    });
+
+
+fetch('assets/new-rd.svg')
+    .then(r => r.text())
+    .then(svg => {
+        document.getElementById('new-rd').innerHTML = svg;
+        Reveal.sync();
+        Reveal.layout();
+    });
