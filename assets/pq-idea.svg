@@ -414,6 +414,6 @@
   </g>
 </svg>
 <div class="v-stack" style="width: 400pt; position: absolute; right: 10pt; bottom: 10pt">
-  <p class="fragment fade" style="background-color: #0042b341; padding: 10pt; border-radius: 20pt; font-weight: normal; font-size: 24pt;"><strong>Only owner</strong> can generate this signature (anonymity)</p>
-  <p class="fragment fade" style="background-color: #0042b341; padding: 10pt; border-radius: 20pt; font-weight: normal; font-size: 24pt;"><strong>All owners</strong> must be able to generate this signature (anti-money laundering)</p>
+  <p class="fragment fade" style="background-color: #0042b341; padding: 10pt; border-radius: 20pt; font-weight: normal; font-size: 24pt;"><strong>Only owner</strong> can generate this signature</p>
+  <p class="fragment fade" style="background-color: #0042b341; padding: 10pt; border-radius: 20pt; font-weight: normal; font-size: 24pt;">The coin owner must be <strong>always</strong> able to generate this signature</p>
 </div>

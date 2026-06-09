@@ -432,7 +432,7 @@
   <g id="Link">
     <g id="Refresh_Derive" data-name="Refresh Derive">
       <g id="blue">
-        <text class="fragment fade rd-cls-47" data-fragment-index="1" transform="translate(207 196.43)"><tspan class="rd-cls-33" x="0" y="0">k</tspan><tspan class="rd-cls-7" x="15.66" y="0">e</tspan><tspan class="rd-cls-43" x="31.7" y="0">y</tspan><tspan class="rd-cls-45" x="46.17" y="0">s</tspan></text>
+        <!-- <text class="fragment fade rd-cls-47" data-fragment-index="1" transform="translate(207 196.43)"><tspan class="rd-cls-33" x="0" y="0">k</tspan><tspan class="rd-cls-7" x="15.66" y="0">e</tspan><tspan class="rd-cls-43" x="31.7" y="0">y</tspan><tspan class="rd-cls-45" x="46.17" y="0">s</tspan></text> -->
         <rect class="rd-cls-6" y="10.39" width="352.95" height="142.47" rx="22.75" ry="22.75"/>
         <g>
           <g class="rd-cls-29">
@@ -508,8 +508,8 @@
           <text class="rd-cls-32" transform="translate(393.48 22.95)"><tspan x="0" y="0">Re</tspan><tspan class="rd-cls-18" x="36.88" y="0">f</tspan><tspan class="rd-cls-38" x="49.49" y="0">r</tspan><tspan x="60.88" y="0">esh</tspan><tspan x="9.57" y="32.4">De</tspan><tspan class="rd-cls-44" x="48.91" y="32.4">r</tspan><tspan x="60.44" y="32.4">i</tspan><tspan class="rd-cls-28" x="68.57" y="32.4">v</tspan><tspan x="84.31" y="32.4">e</tspan></text>
         </g>
       </g>
-      <text id="ed25519" class="fragment fade-in-then-out rd-cls-47" data-fragment-index="1" transform="translate(90.21 196.6)"><tspan class="rd-cls-36" x="0" y="0">E</tspan><tspan x="17.85" y="0">d2</tspan><tspan class="rd-cls-25" x="51.49" y="0">5</tspan><tspan x="66.64" y="0">519 </tspan></text>
-      <text id="ecdh" class="fragment fade rd-cls-47" transform="translate(116.73 196.43)"><tspan class="rd-cls-20" x="0" y="0">E</tspan><tspan x="17.95" y="0">CDH</tspan></text>
+      <text id="ed25519" class="fragment fade rd-cls-47" data-fragment-index="0" transform="translate(110.73 183.43)"><tspan class="rd-cls-20" x="0" y="0"></tspan>Ed25519 keys<tspan x="17.95" y="0"></tspan></text>
+      <text id="ecdh" class="fragment fade rd-cls-47" data-fragment-index="1" transform="translate(90.21 213.6)"><tspan class="rd-cls-36" x="0" y="0">AND X25519 keys</tspan></text>
       <g id="link-key" class="fragment fade">
         <g>
           <rect class="rd-cls-5" y="226.17" width="352.95" height="142.47" rx="22.75" ry="22.75"/>
