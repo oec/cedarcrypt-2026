@@ -253,10 +253,10 @@
 									<h4>Blind Signatures</h4>
 									$$ \begin{align*} 
 										(\mathsf{sk}, \mathsf{pk}) & \leftarrow  \mathsf{BlindSig.Keygen}(1^\lambda) \\
-										\bar{\sigma} 	& \leftarrow  \mathsf{BlindSig.Sig}(\bar{m}, \mathsf{sk}) \\
-										b 		& \leftarrow  \mathsf{BlindSig.Verify}(\mathsf{pk}, m, \sigma) \\
 										\bar{m} 	& \leftarrow  \mathsf{BlindSig.Blind} (m, \mathsf{pk}, r) \\
+										\bar{\sigma} 	& \leftarrow  \mathsf{BlindSig.Sig}(\bar{m}, \mathsf{sk}) \\
 										\sigma 		& \leftarrow  \mathsf{BlindSig.Unblind}(\bar{\sigma}, \bar{m}, \mathsf{pk}, r) \\
+										b 		& \leftarrow  \mathsf{BlindSig.Verify}(\mathsf{pk}, m, \sigma) \\
 									\end{align*} $$
 								</div>
 								<div style="width:30%;" class="fragment">
@@ -315,12 +315,34 @@
 							\]
 						</div>
 					</section>
+					<section id="schnorr" data-background="white">
+						<h4>Schnorr Signature</h4>
+						<div style="font-size:0.4em;">
+							\[
+								\begin{array}{r c l}
+								\mathsf{Verifier} & & \mathsf{Signer} \\[2pt]
+								\text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
+								\hline \\[-8pt]
+								 & & r \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
+								 & & R = r G \\
+								 & & c = H(R \,\Vert\, m) \\
+								 & & s = r + c\, x \\
+								 & & \sigma = (R,\, s) \\[4pt]
+								 & \xleftarrow{\;\;(m,\, \sigma)\;\;} & \\[4pt]
+								(R,\, s) = \sigma \\[4pt]
+								c = H(R \,\Vert\, m) & & \\
+								s G \stackrel{?}{=} R + c P & & \\[4pt]
+								\end{array}
+								\]
+						</div>
+					</section>
 					<section id="blind-schnorr" data-background="white">
 						<h4>Clause Blind Schnorr Signature</h4>
 						<div style="font-size:0.4em;">
 							\[
 								\begin{array}{r c l}
-								\mathsf{Requester} & \scriptstyle P \,=\, xG,\;\; j \,\in\, \{0,1\} & \mathsf{Signer} \\[2pt]
+								\mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
+								\text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
 								\hline \\[-8pt]
 								 & & r_0, r_1 \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
 								 & & (R_0,\, R_1) = (r_0 G, r_1 G) \\[4pt]
