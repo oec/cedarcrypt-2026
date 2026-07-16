@@ -21,6 +21,11 @@ svgs.forEach(s => {
     fetch('assets/' + s + '.svg')
     .then(r => r.text())
     .then(svg => {
-        document.getElementById(s).innerHTML = svg;
+	    const t = document.getElementById(s)
+	    console.log("handling", s);
+	    if (t) {
+	    console.log("setting", s);
+		    t.innerHTML = svg;
+	    }
     });
 });

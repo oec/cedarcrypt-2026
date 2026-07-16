@@ -12,9 +12,13 @@
 		<link rel="stylesheet" href="dist/reset.css" />
 		<link rel="stylesheet" href="dist/reveal.css" />
 		<link rel="stylesheet" href="dist/theme/taler.css" />
+		<link rel="stylesheet" href="dist/bootstrap-icons.min.css">
+
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
 		<!-- GSAP -->
-  		<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  		<!-- script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script -->
+ 		<script src="dist/gsap.min.js"></script>
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="dist/plugin/highlight/monokai.css" />
@@ -25,14 +29,22 @@
 				<section data-background-gradient="linear-gradient(to left, #0042b3, #222)" data-id="mainbg" data-transition="slide" data-background-transition="zoom">				
 				<div style="display:flex; align-items:center;">
 					<h3 style="color:white; margin: 10px 10px 0 0; text-align: right;">
-						Post-Quantumifying Privacy-Preserving Electronic Payments with
+						Digital payments with
 					</h3>
-					<img src="assets/slides-code.svg" style="height:200px;">
+					<!-- img src="assets/slides-code-oec.svg" style="height:200px;" -->
 				</div>
 					<img src="assets/taler-logo.svg" style="width: 70%; margin: 10px 0 30px 0; background: transparent"/>
-					<h6 style="font-size: 18pt; color: white;">Kathrin H&ouml;velmanns, &Ouml;zg&uuml;r Kesim, Tanja Lange, Jonathan Levin, Elisa Pioldi</h6>
-					<h6 style="font-size: 24pt; color: white;">Slides: e.pioldi.net/taler-presentation</h6>
+					<h6 style="font-size: 24pt; color: white;">Özgür Kesim ― Cedarcrypt 2026</h6>
+					<div style="color: white; font-size:18pt">With Elisa Pioldi, TU Eindhoven</div>
+					<!-- h6 style="font-size: 18pt; color: white;">Slides: kesim.org/cedarcrypt-2026</h6 -->
 				</section>
+				<!-- section data-background-iframe="assets/section.html" data-transition="slide">
+					<h2 style="margin:0; color:white; font-weight: bold;">
+						<a style="color:white;"
+						   target="blank"
+						   href="https://shop.demo.taler.net/">First, let's go shopping →</a>
+					</h2>
+				</section -->
 				<section>
 					<section data-background-iframe="assets/section.html" data-transition="slide">
 						<h2 style="margin:0; color:white; font-weight: bold;">
@@ -77,7 +89,7 @@
 							Frauds
 						</h2>
 						<h2  class="fragment fade-down" style="margin: 30pt; color:white; font-weight: bold;">
-							Deregulation
+							(De)regulation
 						</h2>
 						<h2 class="fragment fade-down" style="margin: 30pt; color:white; font-weight: bold;">
 							Black-mailing
@@ -96,24 +108,12 @@
 					</section>
 				</section>
 				<section>
-					<section data-background-iframe="assets/section.html" data-transition="slide">
-						<div class="fragment fade-up">
-							<h2 style="margin-bottom:-10pt; color:#0042b3; font-weight: bold;">
-							Customer
-							</h2>
-							<img src="assets/incognito.svg" height="5%" style="margin-bottom: 10%"/>
-						</div>
-						<h2 style="margin:0; color:white; font-weight: bold;">
-							Asymmetric privacy
+					<section data-background-iframe="assets/section.html" data-auto-animate>
+						<h2 style="color:white; font-weight: bold;"> 
+								Taler's goals 
 						</h2>
-						<div class="fragment fade-down">
-							<img src="assets/surveillance.svg" height="5%" style="margin-top: 10%"/>
-							<h2 style="margin-top:-10pt; color:#0042b3; font-weight: bold;">
-							Merchant
-							</h2>
-						</div>
 					</section>
-					<section data-background-iframe="assets/section.html" data-transition="slide">
+					<section data-background-iframe="assets/section.html" data-auto-animate>
 						<div class="r-stack" style="width: 100%; height: 100%;">
 							<div class="r-stack" style="position: absolute; width: 100%; height: 150px; margin-top: -5vmin;">
 								<img src="assets/taler-deco.svg" style="margin-top: 43pt; margin-left:200pt; height: 80%; background: transparent;"/>
@@ -143,11 +143,56 @@
 							</div>
 						</div>
 					</section>
-					<section data-background="white" data-transition="slide">
+					<section data-background-iframe="assets/section.html" data-auto-animate>
+						<h2 style="margin:0; color:white; font-weight: bold;">
+							Asymmetric privacy
+						</h2>
+					</section>
+					<section data-background-iframe="assets/section.html" data-auto-animate>
+						<div>
+							<h2 style="margin-bottom:-10pt; color:#0042b3; font-weight: bold;">
+							Customer
+							</h2>
+							<img src="assets/incognito.svg" height="5%" style="margin-bottom: 10%"/>
+						</div>
+						<h2 style="margin:0; color:white; font-weight: bold;">
+							Asymmetric privacy
+						</h2>
+						<div class="fragment fade-down">
+							<img src="assets/surveillance.svg" height="5%" style="margin-top: 10%"/>
+							<h2 style="margin-top:-10pt; color:#0042b3; font-weight: bold;">
+							Merchant
+							</h2>
+						</div>
+					</section>
+					<section>
+						<h4 style="color:#0042b3; font-weight: bold;">
+						Taler's core principles
+						</h4>
+						<ol style="font-size:0.8em; display:flex; flex-direction: column; flex-wrap: wrap; gap: 0.3em;">
+						   <li>Be Free/Libre Software</li>
+						   <li>Protect the privacy of buyers</li>
+						   <li>Be Auditable</li>
+						   <li>Prevent payment fraud</li>
+						   <li>Collect the minimum information</li>
+						   <li>Be usable</li>
+						   <li>Be efficient</li>
+						   <li>Fault-tolerant design</li>
+						   <li>Foster competition</li>
+						</ol>
+					</section>
+					<section>
+						<h4 style="color:#0042b3; font-weight: bold;">
+						In good tradition
+						</h4>
+						<a style="font-size:14pt" href="https://web.cs.ucdavis.edu/~rogaway/papers/moral-fn.pdf">https://web.cs.ucdavis.edu/~rogaway/papers/moral-fn.pdf</a>
+						<img src="assets/rogaway.png" />
+					</section>
+					<!-- section data-background="white" data-transition="slide">
 						<h2 style="margin-bottom:-10pt; color:#0042b3; font-weight: bold;">
 						Ideal to be used as a digital currency
 						</h2>
-					</section>
+					</section -->
 				</section>
 				<section>
 					<section data-background="assets/ecash.png" data-transition="fade">
@@ -187,6 +232,112 @@
 								Coins
 							</h3>
 							<div id="coin-struc" style="flex:1; width:100%; margin-top: 60pt;"></div>
+						</div>
+					</section>
+
+					<section>
+						<div class="v-stack">
+							<h4 style="color:#0042b3">
+								Cryptographic primitives
+							</h4>
+							<div style="margin-top:30pt; display: flex; gap:0.5em; font-size: 0.5em">
+								<div style="width:30%;" class="fragment">
+									<h4>Signatures</h4>
+									\[ \begin{align*} 
+										(s, p)	& \leftarrow  \mathsf{Sig.Keygen}(1^\lambda) \\
+										\sigma 	& \leftarrow  \mathsf{Sig.Sig}(s, m) \\
+										 b  	& \leftarrow  \mathsf{Sig.Verify}(p, m, \sigma) \\
+									\end{align*} \]
+								</div>
+								<div style="width:40%;" class="fragment">
+									<h4>Blind Signatures</h4>
+									$$ \begin{align*} 
+										(\mathsf{sk}, \mathsf{pk}) & \leftarrow  \mathsf{BlindSig.Keygen}(1^\lambda) \\
+										\bar{\sigma} 	& \leftarrow  \mathsf{BlindSig.Sig}(\bar{m}, \mathsf{sk}) \\
+										b 		& \leftarrow  \mathsf{BlindSig.Verify}(\mathsf{pk}, m, \sigma) \\
+										\bar{m} 	& \leftarrow  \mathsf{BlindSig.Blind} (m, \mathsf{pk}, r) \\
+										\sigma 		& \leftarrow  \mathsf{BlindSig.Unblind}(\bar{\sigma}, \bar{m}, \mathsf{pk}, r) \\
+									\end{align*} $$
+								</div>
+								<div style="width:30%;" class="fragment">
+									<h4>DH Key Exchange</h4>
+									$$ \begin{align*} 
+										(s, p)	& \leftarrow  \mathsf{DH.Keygen}(1^\lambda) \\
+										t 	& \leftarrow  \mathsf{DH.KEX}(s, p') \\
+											& \quad = \mathsf{DH.KEX}(s', p) 
+									\end{align*} $$
+								</div>
+							</div>
+							<div style="margin-top:30pt; display: flex; gap:0.5em; font-size: 0.5em">
+									<div style="width:30%;" class="fragment">Ed25519</div>
+									<div style="width:40%;" class="fragment">RSA-NN, Clause-Schnorr</div>
+									<div style="width:30%;" class="fragment">X25519</div>
+							</div>
+							<div style="margin-top:2em" class="fragment" ><small>(Hash: SHA256, SHA512)</small></div>
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h4>RSA Signature</h4>
+						<div style="font-size:0.5em;">
+							\[
+								\begin{array}{c c c}
+								\mathsf{Verifyer} &  & \mathsf{Signer} \\[2pt]
+								\hline\\[-8pt]
+								\text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
+								& & \text{with } x^{ed} = x \bmod{N} \\[1pt]
+								& & N = p*q \text{ with } p,q \text{ prime} \\[1pt]
+								\hline\\[-8pt]
+								 & & \sigma = H(m)^{\,d} \bmod N \\
+								 & \xleftarrow{\;\;\sigma,\, m\;\;} & \\
+								\sigma^{e} \stackrel{?}{\equiv} H(m) \pmod{N}
+								\end{array} \\
+							\]
+						</div>
+					</section>
+					<section data-auto-animate>
+						<h4>RSA Blind Signature</h4>
+						<div style="font-size:0.5em;">
+							\[
+								\begin{array}{c c c}
+								\mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
+								\hline \\[-8pt]
+								\text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
+								 & & \text{with } x^{ed} = x \!\pmod{N} \\[2pt]
+								\hline \\[-8pt]
+								r \stackrel{\$}{\leftarrow} \mathbb{Z}_N^{*} & & \\[2pt]
+								\bar{m} = H(m)\cdot r^{e} \bmod N & & \\
+								 & \xrightarrow{\;\;\bar{m}\;\;} & \\
+								 & & \bar{\sigma} = \bar{m}^{\,d} \bmod N \\
+								 & \xleftarrow{\;\;\bar{\sigma}\;\;} & \\
+								\sigma = \bar{s}\cdot r^{-1} \, \bmod N & & \\
+								\sigma^{e} \stackrel{?}{\equiv} H(m) \, \bmod{N}
+								\end{array} \\
+							\]
+						</div>
+					</section>
+					<section id="blind-schnorr" data-background="white">
+						<h4>Clause Blind Schnorr Signature</h4>
+						<div style="font-size:0.4em;">
+							\[
+								\begin{array}{r c l}
+								\mathsf{Requester} & \scriptstyle P \,=\, xG,\;\; j \,\in\, \{0,1\} & \mathsf{Signer} \\[2pt]
+								\hline \\[-8pt]
+								 & & r_0, r_1 \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
+								 & & (R_0,\, R_1) = (r_0 G, r_1 G) \\[4pt]
+								 & \xleftarrow{\;\;(R_0,\, R_1)\;\;} & \\[4pt]
+								\alpha_j, \beta_j \stackrel{\$}{\leftarrow} \mathbb{Z}_p & & \\
+								R'_j = R_j + \alpha_j G + \beta_j P & & \\
+								c'_j = H(R'_j \,\Vert\, m) & & \\
+								c_j = c'_j + \beta_j & & \\[4pt]
+								 & \xrightarrow{\;\;(c_0,\, c_1)\;\;} & \\[4pt]
+								 & & b \stackrel{\$}{\leftarrow} \{0,1\} \\
+								 & & s = r_b + c_b\, x \\[4pt]
+								 & \xleftarrow{\;\;(b,\, s)\;\;} & \\[4pt]
+								s' = s + \alpha_b & & \\
+								\sigma = (R'_b,\, s') & & \\[4pt]
+								s' G \stackrel{?}{=} R'_b + c'_b P & \\
+								\end{array}
+								\]
 						</div>
 					</section>
 				</section>
@@ -513,6 +664,66 @@
 						</div>
 					</section>
 				</section>
+				<section>
+					<section id="deployed-real-world" data-background-iframe="assets/section.html" data-background="white" data-auto-animate>
+						<h2 style="color:white; font-weight: bold;">
+							À tout Taler!	
+						</h2>
+					</section>
+					<section id="deployed-real-world" data-background-iframe="assets/section.html" data-background="white" data-auto-animate>
+						<h2 style="color:white; font-weight: bold;">
+						Deployed in real world!
+						</h2>
+					</section>
+					<section id="deployed-real-world" data-background-iframe="assets/section.html" data-background="white" data-auto-animate>
+						<h3 style="color:white; font-weight: bold;">
+						Switzerland only (for now)
+						</h3>
+					</section>
+					<section id="taler-map" data-background-iframe="https://taler-ops.ch/en/map.html" data-background-interactive data-transition="fade">
+					</section>
+					<section id="taler-in-biel" data-transition="fade">
+						<img src="assets/biel-taler.jpg" style="width: 100%;"/>
+					</section>
+					<section id="taler-in-biel-2" data-transition="fade">
+						<img src="assets/biel-christian.jpg" style="width:50%;"/>
+					</section>
+					<section id="digital-currency" data-background="white" data-transition="slide" data-auto-animate>
+						Pitch
+						<h2 style="font-weight: bold;">
+						Ideal to be used </br> as a digital currency
+						</h2>
+						<h2 data-id="not-only" class="fragment fade-up" style="font-weight: bold;">
+						...but not only
+						</h2>
+					</section>
+					<section id="other-use-cases" data-background="white" data-transition="slide" data-auto-animate>
+						<h2 data-id="not-only" style="color:#0042b3; font-weight: bold; margin-bottom: 30pt;">
+						...but not only
+						</h2>
+						<div class="fragment fade-down" style="font-weight: bold; margin-bottom: 30pt;">
+							<h3 style="font-weight: bold;">
+								<i style="color:#0042b3;" class="bi bi-ticket-perforated"></i>
+								Vouchers</h3>
+						</div>
+						<div class="fragment fade-down" style="font-weight: bold; margin-bottom: 30pt;">
+							<h3 style="font-weight: bold;">
+								<i style="color:#0042b3;" class="bi bi-credit-card"></i>
+								Loyalty cards</h3>
+						</div>
+						<div class="fragment fade-down" style="font-weight: bold; margin-bottom: 30pt;">
+							<h3 style="font-weight: bold;">
+								<i style="color:#0042b3;" class="bi bi-person-check"></i>
+								Online age verification</h3>
+						</div>
+						<div class="fragment fade-down" style="font-weight: bold; margin-bottom: 30pt;">
+							<h3 style="font-weight: bold;">
+								<i style="color:#0042b3;" class="bi bi-tv"></i>
+								Streaming service subscriptions
+							</h3>
+						</div>
+					</section>
+				</section>
 				<section data-background="white">
 					<div class="v-stack">
 						<h4 style="color:#0042b3; font-weight: bold;">
@@ -538,14 +749,20 @@
 		<script src="dist/plugin/notes.js"></script>
 		<script src="dist/plugin/markdown.js"></script>
 		<script src="dist/plugin/highlight.js"></script>
+		<script src="dist/plugin/zoom.js"></script>
+		<script src="dist/plugin/math.js"></script>
 		<script src="logic/diagram.js"></script>
 		<script src="logic/svg.js"></script>
 		<script src="logic/blur.js"></script>
 		<script>
 			Reveal.initialize({
+				// width: 1280,
+  				// height: 720,
 				hash: true,
 				preloadIframes: true,
-				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+				zoomLevel: 5,
+				plugins: [RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom, RevealMath.KaTeX],
+				// controls: 'speaker',
 			});
 		</script>
 	</body>
