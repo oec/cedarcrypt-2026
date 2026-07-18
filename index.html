@@ -36,6 +36,7 @@
 					<img src="assets/taler-logo.svg" style="width: 70%; margin: 10px 0 30px 0; background: transparent"/>
 					<h6 style="font-size: 24pt; color: white;">Özgür Kesim ― Cedarcrypt 2026</h6>
 					<div style="color: white; font-size:18pt">With Elisa Pioldi, TU Eindhoven</div>
+					<div style="color: white; font-size:18pt">Slides: www.kesim.org/cedarcrypt-2026 </div>
 					<!-- h6 style="font-size: 18pt; color: white;">Slides: kesim.org/cedarcrypt-2026</h6 -->
 				</section>
 				<!-- section data-background-iframe="assets/section.html" data-transition="slide">
@@ -276,41 +277,44 @@
 							<div style="margin-top:2em" class="fragment" ><small>(Hash: SHA256, SHA512)</small></div>
 						</div>
 					</section>
-					<section data-auto-animate>
+					<section>
 						<h4>RSA Signature</h4>
 						<div style="font-size:0.5em;">
 							\[
-								\begin{array}{c c c}
-								\mathsf{Verifyer} &  & \mathsf{Signer} \\[2pt]
+								\begin{array}{r| r c l |l}
+								& \mathsf{Verifyer} &  & \mathsf{Signer} \\[2pt]
 								\hline\\[-8pt]
-								\text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
-								& & \text{with } x^{ed} = x \bmod{N} \\[1pt]
-								& & N = p*q \text{ with } p,q \text{ prime} \\[1pt]
+								& \text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
+								& & & \text{with } x^{ed} = x \bmod{N} \\[1pt]
+								& & & N = p*q \text{ with } p,q \text{ prime} \\[1pt]
 								\hline\\[-8pt]
-								 & & \sigma = H(m)^{\,d} \bmod N \\
-								 & \xleftarrow{\;\;\sigma,\, m\;\;} & \\
-								\sigma^{e} \stackrel{?}{\equiv} H(m) \pmod{N}
+								& & & \sigma = H(m)^{\,d} \bmod N & \mathsf{Sign}\\
+								& & \xleftarrow{\;\;\sigma,\, m\;\;} & \\
+								\mathsf{Verify} & \sigma^{e} \stackrel{?}{\equiv} H(m) \pmod{N}
 								\end{array} \\
 							\]
 						</div>
 					</section>
-					<section data-auto-animate>
+					<section>
 						<h4>RSA Blind Signature</h4>
 						<div style="font-size:0.5em;">
 							\[
-								\begin{array}{c c c}
-								\mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
+								\begin{array}{r | r c l | l}
+								& \mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
 								\hline \\[-8pt]
-								\text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
-								 & & \text{with } x^{ed} = x \!\pmod{N} \\[2pt]
+								& \text{Has public key } (N,e) & & \text{Has private key } d\\[2pt]
+								& & & \text{with } x^{ed} = x \!\pmod{N} \\[2pt]
 								\hline \\[-8pt]
-								r \stackrel{\$}{\leftarrow} \mathbb{Z}_N^{*} & & \\[2pt]
-								\bar{m} = H(m)\cdot r^{e} \bmod N & & \\
-								 & \xrightarrow{\;\;\bar{m}\;\;} & \\
-								 & & \bar{\sigma} = \bar{m}^{\,d} \bmod N \\
-								 & \xleftarrow{\;\;\bar{\sigma}\;\;} & \\
-								\sigma = \bar{s}\cdot r^{-1} \, \bmod N & & \\
-								\sigma^{e} \stackrel{?}{\equiv} H(m) \, \bmod{N}
+								& r \stackrel{\$}{\leftarrow} \mathbb{Z}_N^{*} & & \\[2pt]
+								\mathsf{Blind} & \bar{m} = H(m)\cdot r^{e} \bmod N & & \\
+								& & \xrightarrow{\;\;\bar{m}\;\;} & \\
+								\hline
+								& & & \bar{\sigma} = \bar{m}^{\,d} \bmod N & \mathsf{Sign} \\
+								& & \xleftarrow{\;\;\bar{\sigma}\;\;} & \\
+								\hline
+								\mathsf{Unblind} & \sigma = \bar{s}\cdot r^{-1} \, \bmod N & & \\
+								\hline
+								\mathsf{Verify} & \sigma^{e} \stackrel{?}{\equiv} H(m) \, \bmod{N}
 								\end{array} \\
 							\]
 						</div>
@@ -319,19 +323,20 @@
 						<h4>Schnorr Signature</h4>
 						<div style="font-size:0.4em;">
 							\[
-								\begin{array}{r c l}
-								\mathsf{Verifier} & & \mathsf{Signer} \\[2pt]
-								\text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
+								\begin{array}{r | r c l | l}
+								& \mathsf{Verifier} & & \mathsf{Signer} \\[2pt]
+								& \text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
 								\hline \\[-8pt]
-								 & & r \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
-								 & & R = r G \\
-								 & & c = H(R \,\Vert\, m) \\
-								 & & s = r + c\, x \\
-								 & & \sigma = (R,\, s) \\[4pt]
-								 & \xleftarrow{\;\;(m,\, \sigma)\;\;} & \\[4pt]
-								(R,\, s) = \sigma \\[4pt]
-								c = H(R \,\Vert\, m) & & \\
-								s G \stackrel{?}{=} R + c P & & \\[4pt]
+								&  & & r \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
+								&  & & R = r G \\
+								&  & & c = H(R \,\Vert\, m) & \mathsf{Sign}\\
+								&  & & s = r + c\, x \\
+								&  & & \sigma = (R,\, s) \\[4pt]
+								&  & \xleftarrow{\;\;(m,\, \sigma)\;\;} & \\[4pt]
+								\hline
+								& (R,\, s) = \sigma \\[4pt]
+								\mathsf{Verify} & c = H(R \,\Vert\, m) & & \\
+								& s G \stackrel{?}{=} R + c P & & \\[4pt]
 								\end{array}
 								\]
 						</div>
@@ -340,24 +345,27 @@
 						<h4>Clause Blind Schnorr Signature</h4>
 						<div style="font-size:0.4em;">
 							\[
-								\begin{array}{r c l}
-								\mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
-								\text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
+								\begin{array}{r | r c l | l}
+								& \mathsf{Requester} &  & \mathsf{Signer} \\[2pt]
+								& \text{Has } P \, (=xG) & & \text{Has }x \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\[2pt]
 								\hline \\[-8pt]
-								 & & r_0, r_1 \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
-								 & & (R_0,\, R_1) = (r_0 G, r_1 G) \\[4pt]
-								 & \xleftarrow{\;\;(R_0,\, R_1)\;\;} & \\[4pt]
-								\alpha_j, \beta_j \stackrel{\$}{\leftarrow} \mathbb{Z}_p & & \\
-								R'_j = R_j + \alpha_j G + \beta_j P & & \\
-								c'_j = H(R'_j \,\Vert\, m) & & \\
-								c_j = c'_j + \beta_j & & \\[4pt]
-								 & \xrightarrow{\;\;(c_0,\, c_1)\;\;} & \\[4pt]
-								 & & b \stackrel{\$}{\leftarrow} \{0,1\} \\
-								 & & s = r_b + c_b\, x \\[4pt]
-								 & \xleftarrow{\;\;(b,\, s)\;\;} & \\[4pt]
-								s' = s + \alpha_b & & \\
-								\sigma = (R'_b,\, s') & & \\[4pt]
-								s' G \stackrel{?}{=} R'_b + c'_b P & \\
+								&  & & r_0, r_1 \stackrel{\$}{\leftarrow} \mathbb{Z}_p \\
+								&  & & (R_0,\, R_1) = (r_0 G, r_1 G) \\[4pt]
+								&  & \xleftarrow{\;\;(R_0,\, R_1)\;\;} & \\[4pt]
+								& \alpha_j, \beta_j \stackrel{\$}{\leftarrow} \mathbb{Z}_p & & \\
+								\mathsf{Blind} & R'_j = R_j + \alpha_j G + \beta_j P & & \\
+								& c'_j = H(R'_j \,\Vert\, m) & & \\
+								& c_j = c'_j + \beta_j & & \\[4pt]
+								&  & \xrightarrow{\;\;(c_0,\, c_1)\;\;} & \\[4pt]
+								\hline
+								&  & & b \stackrel{\$}{\leftarrow} \{0,1\} \\
+								&  & & s = r_b + c_b\, x & \mathsf{Sign} \\[4pt]
+								&  & \xleftarrow{\;\;(b,\, s)\;\;} & \\[4pt]
+								\hline
+								\mathsf{Unblind} & s' = s + \alpha_b & & \\
+								& \sigma = (R'_b,\, s') & & \\[4pt]
+								\hline
+								\mathsf{Verify} & s' G \stackrel{?}{=} R'_b + c'_b P & \\
 								\end{array}
 								\]
 						</div>
